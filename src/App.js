@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { TrafficLightProvider } from './context/TrafficLightContext';
+import TrafficLight from './components/TrafficLight';
+import PedestrianButton from './components/PedestrianButton';
+import EmergencyOverride from './components/EmergencyOverride';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TrafficLightProvider>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#f0f0f0' }}>
+        <h1>Traffic Light Simulator</h1>
+        <TrafficLight />
+        <div style={{ marginTop: '20px' }}>
+          <PedestrianButton />
+          <EmergencyOverride />
+        </div>
+      </div>
+    </TrafficLightProvider>
   );
-}
+};
 
 export default App;
